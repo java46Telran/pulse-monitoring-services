@@ -18,7 +18,7 @@ public class AnalyzerAppl {
 AnalyzerService analyzerService;
 	@Autowired
 	StreamBridge streamBridge;
-	@Value("${app.binding.name:jumps-out-0}")
+	@Value("${app.jumps.binding.name:jumps-out-0}")
 	private String bindingName;
 	public static void main(String[] args) {
 		SpringApplication.run(AnalyzerAppl.class, args);
