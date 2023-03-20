@@ -8,9 +8,9 @@
   <artifactId>pulse-monitoring-analyzer</artifactId>
   <dependencies>
   	<dependency>
-  		<groupId>telran.monitoring</groupId>
-  		<artifactId>pulse-monitoring-dto</artifactId>
-  		<version>0.0.1</version>
-  	</dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-data-redis</artifactId>
+		  
+	  </dependency>
   </dependencies>
 </project>
