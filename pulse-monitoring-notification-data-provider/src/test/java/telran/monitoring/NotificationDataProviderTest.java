@@ -21,8 +21,7 @@ import telran.monitoring.controller.NotificationDataProviderController;
 import telran.monitoring.model.NotificationData;
 import telran.monitoring.service.DataProviderServiceImpl;
 @SpringBootTest
-//@WebMvcTest({NotificationDataProviderController.class, DataProviderServiceImpl.class,
-//	Doctor})
+
 @AutoConfigureMockMvc
 
 class NotificationDataProviderTest {
@@ -33,7 +32,7 @@ class NotificationDataProviderTest {
 	}
 
 	@Test
-	@Sql(scripts = "DoctorsPatientsVisists.sql")
+	@Sql(scripts = {"DoctorsPatientsVisits.sql"})
 	void test() throws  Exception {
 		String jsonResponse = mockMvc.perform(get("/data/123"))
 				.andExpect(status().isOk()).andReturn().getResponse()
