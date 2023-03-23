@@ -34,7 +34,7 @@ LastProbeRepository lastProbeRepository;
 			LOG.debug("jump: patientId is {} previous value is {}, current value is {}",probe.patientId,
 					lastProbe.getValue(), probe.value);
 		}
-		LOG.trace("for patient {} last value {}", lastProbe.getPatientId(), lastProbe.getValue());
+		LOG.trace("lastProbe value for patient {} last value {}", lastProbe.getPatientId(), lastProbe.getValue());
 		lastProbe.setValue(probe.value);
 		lastProbeRepository.save(lastProbe);
 		return res;

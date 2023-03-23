@@ -27,7 +27,8 @@ public class AvgReducerServiceImpl implements AvgReducerService {
 	}
 	@Transactional
 	public Integer reduce(PulseProbe probe) {
-		ProbesList probesList = probesListsRepository.findById(probe.patientId).orElse(null);
+		ProbesList probesList = probesListsRepository.findById(probe.patientId)
+				.orElse(null);
 		Integer avgValue = null;
 		if (probesList == null) {
 			LOG.debug("for patient {} no saved pulse values", probe.patientId);
