@@ -15,16 +15,16 @@ import telran.monitoring.model.*;
 import telran.monitoring.service.AvgReducerService;
 
 @SpringBootApplication
-public class AvgReducerAppl {
+public class AvgValuesReducerAppl {
 	@Autowired
 	AvgReducerService service;
 	@Autowired
 	StreamBridge streamBridge;
 	@Value("${app.avg.binding.name}")
 	String bindingName;
-static Logger LOG = LoggerFactory.getLogger(AvgReducerAppl.class);
+static Logger LOG = LoggerFactory.getLogger(AvgValuesReducerAppl.class);
 	public static void main(String[] args) {
-		SpringApplication.run(AvgReducerAppl.class, args);
+		SpringApplication.run(AvgValuesReducerAppl.class, args);
 
 	}
 	@Bean
