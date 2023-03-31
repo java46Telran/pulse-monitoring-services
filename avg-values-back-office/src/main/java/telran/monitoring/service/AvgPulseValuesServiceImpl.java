@@ -46,9 +46,7 @@ public class AvgPulseValuesServiceImpl implements AvgPulseValuesService{
 
 	@Override
 	public int getAvgPulseValueDates(long patientId, LocalDateTime from, LocalDateTime to) {
-		from = LocalDateTime.from(ZonedDateTime.of(from, ZoneId.of("UTC")));
 		LOG.trace("from time: {}", from);
-		to = LocalDateTime.from(ZonedDateTime.of(to, ZoneId.of("UTC")));
 		LOG.trace("to time: {}", to);
 		Criteria criteria = Criteria.where(PATIENT_ID).is(patientId)
 				.andOperator(Criteria.where(DATE_TIME).gte(from).lte(to));
