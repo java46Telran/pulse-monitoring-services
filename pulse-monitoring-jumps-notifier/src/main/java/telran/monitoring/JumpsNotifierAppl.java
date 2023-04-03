@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.client.RestTemplate;
 
 import telran.monitoring.model.*;
 import telran.monitoring.service.NotificationDataProvider;
@@ -55,5 +56,6 @@ String subject;
 				+ "previous value: %d; current value: %d\n",
 				data.doctorName, data.patientName, jump.previousValue, jump.currentValue);
 	}
+	
 
 }

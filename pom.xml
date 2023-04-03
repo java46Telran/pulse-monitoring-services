@@ -87,5 +87,6 @@
 		<module>pulse-monitoring-notification-data-provider</module>
 		<module>pulse-monitoring-avg-populator</module>
 		<module>avg-values-back-office</module>
+		<module>visits-back-office</module>
 	</modules>
 </project>
