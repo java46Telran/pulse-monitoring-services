@@ -1,5 +1,6 @@
 package telran.monitoring.controller;
 
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,21 +16,24 @@ import java.util.List;
 public class VisitsController {
 	static final String ADD_PATIENT = "/patients";
 	static final String ADD_DOCTOR = "/doctors";
-	static final String PULSE_VALUES = "/pulse/values/";
+	static Logger LOG = LoggerFactory.getLogger(VisitsController.class);
 	@Autowired
 	VisitsService visits;
 	@PostMapping(value=ADD_PATIENT)
-	PatientDto addPatient(PatientDto patient) {
+	PatientDto addPatient(@RequestBody PatientDto patient) {
+		LOG.debug("received patient {} ", patient);
 		visits.addPatient(patient);
 		return patient;
 	}
 	@PostMapping(value=ADD_DOCTOR)
-	DoctorDto addDoctor(DoctorDto doctor) {
+	DoctorDto addDoctor(@RequestBody DoctorDto doctor) {
+		LOG.debug("received doctor {} ", doctor);
 		visits.addDoctor(doctor);
 		return doctor;
 	}
 	@PostMapping
-	VisitDto addVisit(VisitDto visit) {
+	VisitDto addVisit(@RequestBody VisitDto visit) {
+		LOG.debug("received visit {} ", visit);
 		visits.addVisit(visit);
 		return visit;
 	}
