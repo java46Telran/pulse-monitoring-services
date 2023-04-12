@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>telran.monitoring</groupId>
 	<artifactId>pulse-monitoring-services</artifactId>
@@ -34,14 +34,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
-			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
-			
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -63,6 +60,11 @@
 			<artifactId>pulse-monitoring-dto</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>telran.exceptions</groupId>
+			<artifactId>exceptions-handling</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -75,7 +77,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -84,7 +85,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<modules>
 		<module>pulse-monitoring-analyzer</module>
 		<module>pulse-monitoring-avg-reducer</module>
