@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import telran.monitoring.model.*;
-
+import telran.exceptions.NotFoundException;
 import telran.monitoring.entities.*;
 import telran.monitoring.repo.*;
 @Service
@@ -27,6 +27,9 @@ public class VisitsServiceImpl implements VisitsService {
 	@Override
 	@Transactional
 	public void addPatient(PatientDto patientDto) {
+		if(patientRepository.existsById(patientDto.id)) {
+			throw new IllegalStateException(String.format("patient with id %d already exists", patientDto.id));
+		}
 		Patient patient = new Patient(patientDto.id, patientDto.name);
 		patientRepository.save(patient);
 		
@@ -34,7 +37,11 @@ public class VisitsServiceImpl implements VisitsService {
 	}
 
 	@Override
+	@Transactional
 	public void addDoctor(DoctorDto doctorDto) {
+		if(doctorRepository.existsById(doctorDto.email)) {
+			throw new IllegalStateException(String.format("doctor with email %s already exists", doctorDto.email));
+		}
 		Doctor doctor = new Doctor(doctorDto.email, doctorDto.name);
 		doctorRepository.save(doctor);
 
@@ -46,11 +53,11 @@ public class VisitsServiceImpl implements VisitsService {
 		LocalDate date = LocalDate.parse(visitDto.date);
 		Doctor doctor = doctorRepository.findById(visitDto.doctorEmail).orElse(null);
 		if (doctor == null) {
-			throw new RuntimeException(String.format("doctor %s not found", visitDto.doctorEmail));
+			throw new NotFoundException(String.format("doctor %s not found", visitDto.doctorEmail));
 		}
 		Patient patient = patientRepository.findById(visitDto.patientId).orElse(null);
 		if (patient == null) {
-			throw new RuntimeException(String.format("patient %d not found", visitDto.patientId));
+			throw new NotFoundException(String.format("patient %d not found", visitDto.patientId));
 		}
 		Visit visit = new Visit(date , doctor , patient );
 		visitRepository.save(visit );

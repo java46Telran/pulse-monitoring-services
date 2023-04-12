@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import telran.monitoring.model.*;
 import telran.monitoring.service.VisitsService;
 
 @SpringBootApplication
+@ComponentScan(basePackages= {"telran"})
 public class VisitsAppl {
 	@Autowired
 	VisitsService service;
